@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Weather App</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=divice-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<link rel="shortcut icon" type="image/png" href="assets/image/favicon.png" />
+</head>
+
+<body>
+	<div class="preload-widget">
+		<div class="preload-widget__load-image">
+			<div class="divider" aria-hidden="true"></div>
+			  <p class="loading-text" aria-label="Loading">
+			    <span class="letter" aria-hidden="true">L</span>
+			    <span class="letter" aria-hidden="true">o</span>
+			    <span class="letter" aria-hidden="true">a</span>
+			    <span class="letter" aria-hidden="true">d</span>
+			    <span class="letter" aria-hidden="true">i</span>
+			    <span class="letter" aria-hidden="true">n</span>
+			    <span class="letter" aria-hidden="true">g</span>
+			  </p>
+		</div>
+	</div>
+	<div class="content">
+
+		<video  muted loop id="weather-status-bg">
+		  <source src="" type="video/mp4">
+		</video>
+
+		<div class="app">
+			<div class="app__left">
+				<div class="app__change-temperature-var">
+					<span class="active-temp">C</span>
+				</div>
+				<div class="app__main-icon">
+					<img src="assets/image/main-weather-ic.png" alt="">
+				</div>
+				<h1 class="app__main-temperature">27 c</h1>
+				<p class="app__main-date"></p>
+				<span class="app__main-day-time">
+					<p class="app__day">Thrusday</p>
+					<hr>
+					<p class="app__time">2:45 am</p>
+				</span>
+				<div class="app__weather-stats">
+					<div class="app__stats-box">
+						<div class="app__stats-image">
+							<img src="assets/image/wind.png" alt="">
+						</div>
+						<p class="app__stats-title wind-kph">Wind <b>10 km/h</b></p>
+					</div>
+					<div class="app__stats-box">
+						<div class="app__stats-image">
+							<img src="assets/image/hum.png" alt="">
+						</div>
+						<p class="app__stats-title hum">Hum <b>54 %</b></p>
+					</div>
+					<div class="app__stats-box">
+						<div class="app__stats-image weather-status-img">
+							<img src="assets/image/rain.png" alt="">
+						</div>
+						<p class="app__stats-title weather-status">Rain</p>
+					</div>
+				</div>
+				<div class="app__weatrer-forecast-row">
+					
+				</div>
+			</div>
+			<div class="app__right">
+				<div class="app__location-search-wrapper">
+					<div class="app__search" id="input-btn-search">
+						<img src="assets/image/search.png" alt="">
+					</div>
+					<div class="search-conteiner">
+						<input type="text" id="input-search" placeholder="enter location">
+					</div>
+				</div>
+
+				<div class="app__location-row">
+					<div class="app__location">
+						<div class="app__icon-location">
+							<img src="assets/image/location.png" alt="">
+						</div>
+						<p class="currient-location">Delhi, India</p>
+					</div>
+				</div>
+
+				<div class="app__currient-location-receice">
+					currient location receive
+				</div>
+
+				<div class="app__tile-line">
+					<div class="app__times-box times-box">
+						<p class="times-box__title sunrise-title">Sunrise</p>
+						<div class="times-box__wrapper">
+							<div class="times-box__icon">
+								<img src="assets/image/time.png" alt="">
+							</div>
+							<p class="times-box__timer sunrise-time">23:00</p>
+						</div>
+					</div>
+
+					<div class="app__times-box times-box">
+						<p class="times-box__title">Moonrise</p>
+						<div class="times-box__wrapper">
+							<div class="times-box__icon">
+								<img src="assets/image/time.png" alt="">
+							</div>
+							<p class="times-box__timer moonrise-time">23:00</p>
+						</div>
+					</div>
+
+					<div class="app__times-box times-box">
+						<p class="times-box__title">Sunset</p>
+						<div class="times-box__wrapper">
+							<div class="times-box__icon">
+								<img src="assets/image/time.png" alt="">
+							</div>
+							<p class="times-box__timer sunset-time">23:00</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="app__air-quality air-quality">
+					<div class="air-quality__wrapper">
+						<div class="air-quality__box">
+							<h3 class="air-quality__title">Us epa index</h3>
+							<div class="air-quality__circle">
+								<svg width="184" height="96" viewBox="0 0 184 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M176.224 91.8881C176.224 93.9737 177.914 95.6643 180 95.6643C182.086 95.6643 183.776 93.9737 183.776 91.8881H176.224ZM164.943 49.723C172.117 62.1238 176.224 76.5206 176.224 91.8881H183.776C183.776 75.1576 179.301 59.4607 171.481 45.9413L164.943 49.723Z" fill="#713FFD"/>
+								<path d="M168.212 47.8322C160.474 34.4555 149.321 23.302 135.944 15.564" stroke="#865CFD" stroke-opacity="0.85" stroke-width="6"/>
+								<path d="M91.8882 3.77625C107.937 3.77625 122.984 8.06704 135.944 15.5641" stroke="#9874FF" stroke-opacity="0.83" stroke-width="6"/>
+								<path d="M91.888 3.77625C75.7864 3.77625 60.6934 8.09528 47.7045 15.638" stroke="#AC8EFF" stroke-opacity="0.78" stroke-width="6"/>
+								<path d="M15.5638 47.8321C23.2773 34.498 34.3845 23.3729 47.7044 15.6379" stroke="#CDBBFF" stroke-opacity="0.63" stroke-width="6"/>
+								<path d="M0 91.8881C0 93.9737 1.69068 95.6643 3.77622 95.6643C5.86177 95.6643 7.55245 93.9737 7.55245 91.8881H0ZM7.55245 91.8881C7.55245 76.5206 11.6593 62.1238 18.8328 49.723L12.2953 45.9413C4.47477 59.4607 0 75.1576 0 91.8881H7.55245Z" fill="white" fill-opacity="0.24"/>
+								</svg>
+								<div class="air-quality__arrow us-ar">
+									<span></span>
+								</div>
+								<p class="air-quality__index">
+									<span id="us-epa-index">2</span>/6
+								</p>
+							</div>
+						</div>
+
+						<div class="air-quality__box">
+							<h3 class="air-quality__title">Gb defra index</h3>
+							<div class="air-quality__circle">
+								<svg width="184" height="96" viewBox="0 0 184 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M176.224 91.8881C176.224 93.9737 177.914 95.6643 180 95.6643C182.086 95.6643 183.776 93.9737 183.776 91.8881H176.224ZM164.943 49.723C172.117 62.1238 176.224 76.5206 176.224 91.8881H183.776C183.776 75.1576 179.301 59.4607 171.481 45.9413L164.943 49.723Z" fill="#713FFD"/>
+								<path d="M168.212 47.8322C160.474 34.4555 149.321 23.302 135.944 15.564" stroke="#865CFD" stroke-opacity="0.85" stroke-width="6"/>
+								<path d="M91.8882 3.77625C107.937 3.77625 122.984 8.06704 135.944 15.5641" stroke="#9874FF" stroke-opacity="0.83" stroke-width="6"/>
+								<path d="M91.888 3.77625C75.7864 3.77625 60.6934 8.09528 47.7045 15.638" stroke="#AC8EFF" stroke-opacity="0.78" stroke-width="6"/>
+								<path d="M15.5638 47.8321C23.2773 34.498 34.3845 23.3729 47.7044 15.6379" stroke="#CDBBFF" stroke-opacity="0.63" stroke-width="6"/>
+								<path d="M0 91.8881C0 93.9737 1.69068 95.6643 3.77622 95.6643C5.86177 95.6643 7.55245 93.9737 7.55245 91.8881H0ZM7.55245 91.8881C7.55245 76.5206 11.6593 62.1238 18.8328 49.723L12.2953 45.9413C4.47477 59.4607 0 75.1576 0 91.8881H7.55245Z" fill="white" fill-opacity="0.24"/>
+								</svg>
+								<div class="air-quality__arrow gb-ar">
+									<span></span>
+								</div>
+								<p class="air-quality__index">
+									<span id="gb-defra-index">6</span>/10
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+
+	<div class="error-popup">
+		<div class="error-popup__close">
+			<img src="assets/image/close.png" alt="">
+		</div>
+		<div class="error-popup__title">
+			<h4>unable to locate</h4>
+			<p>loading defaults location</p>
+		</div>
+	</div>
+
+	
+
+
+	<script src="js/scripts.js"></script>
+</body>
+
+</html>
+
