@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 	const searchBtn = document.querySelector('#input-btn-search');
 	const currentLocationReceiveBtn = document.querySelector('.app__currient-location-receice');
+	const inpsrc = document.querySelector('#input-search')
 
 	const errorPopupElement = document.querySelector('.error-popup');
 	const closeErrorPopupElement = document.querySelector('.error-popup__close');
@@ -38,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function(){
 			positionString = `${lat},${lng}`;
 			serverDataLoad(positionString);
 		}, function(error){
-			console.log(error)
+		
 			if(error.PERMISSION_DENIED){
 				let positionString;
 				lat = 50.459282825465216; 
@@ -54,11 +55,25 @@ document.addEventListener('DOMContentLoaded', function(){
     searchBtn.addEventListener('click', searchLocation);
     function searchLocation(){
     	let positionString;
-    	const inputSearch = document.querySelector('#input-search').value;
-    	positionString = `${inputSearch}`;
-    	serverDataLoad(positionString)
-    	console.log(positionString)
+    	let inputSearch = inpsrc.value;
+    	if(inputSearch != ""){
+    		positionString = `${inputSearch}`;
+    	    serverDataLoad(positionString)
+    	}
     }
+
+
+    inpsrc.addEventListener("keydown", function(event) {
+	  if (event.keyCode === 13) {
+	    let positionString;
+    	let inputSearch = inpsrc.value;
+    	if(inputSearch != ""){
+    		positionString = `${inputSearch}`;
+    	    serverDataLoad(positionString)
+    	}
+	  }
+	});
+
 
     function serverDataLoad(currentLocation){
     	apiKey = `https://api.weatherapi.com/v1/forecast.json?key=c16e7bedbb884ea396c65303230502&q=${currentLocation}&days=4&aqi=yes`;
@@ -73,7 +88,6 @@ document.addEventListener('DOMContentLoaded', function(){
     }
 	
     function renderData(data){
-    	console.log(data);
     	let apiLocationCountry = data.location.country;
     	let apiWeatherStatusIconMain = data.current.condition.icon;
     	let apiLocationCity = data.location.name;

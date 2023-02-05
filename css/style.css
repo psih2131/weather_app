@@ -397,6 +397,11 @@ body{
 	backdrop-filter: blur(100px);
 	border-radius: 15px;
 	cursor: pointer;
+	transition: all ease 0.3s;
+}
+.app__search:hover{
+	background: rgb(113, 63, 253);
+	transition: all ease 0.3s;
 }
 .app__search img{
 	width: 20px;
@@ -451,6 +456,11 @@ body{
 	margin-left: 70px;
 	margin-top: 15px;
 	font-weight: 300;
+	transition: all ease 0.3s;
+}
+.app__currient-location-receice:hover{
+	color:rgb(113, 63, 253);
+	transition: all ease 0.3s;
 }
 .error-popup{
 	position: fixed;
