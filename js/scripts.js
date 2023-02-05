@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function(){
     }
 
     function serverDataLoad(currentLocation){
-    	apiKey = `http://api.weatherapi.com/v1/forecast.json?key=c16e7bedbb884ea396c65303230502&q=${currentLocation}&days=4&aqi=yes`;
+    	apiKey = `https://api.weatherapi.com/v1/forecast.json?key=c16e7bedbb884ea396c65303230502&q=${currentLocation}&days=4&aqi=yes`;
 		fetch(apiKey)
 	    .then(response => {
 	    	return response.json();
