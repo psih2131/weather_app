@@ -49,6 +49,7 @@ document.addEventListener('DOMContentLoaded', function(){
 				serverDataLoad(positionString);
 			}
 		});
+		inpsrc.value = ""
     }
     getLocation();
     
